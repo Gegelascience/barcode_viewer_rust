@@ -1,7 +1,7 @@
 
 
-pub fn is_correct_ean() {
-    println!("Correct EAN!");
+pub fn is_correct_ean(ean_test: &str) {
+    println!("Correct EAN! {}", ean_test);
     calculate_digit_check();
 }
 
