@@ -22,10 +22,10 @@ pub fn is_correct_ean(ean_test: &str) -> bool {
     let digit = calculate_digit_check(&ean_test[..len_withoutdigit]);
 
 
-    println!("{}",ean_test[..test_length].chars().last().unwrap().to_digit(10).unwrap());
-    println!("{}",digit);
+    //println!("{}",ean_test[..test_length].chars().last().unwrap().to_digit(10).unwrap());
+    //println!("{}",digit);
 
-    println!("{}",ean_test[..test_length].chars().last().unwrap().to_digit(10).unwrap() == digit);
+    //println!("{}",ean_test[..test_length].chars().last().unwrap().to_digit(10).unwrap() == digit);
     
     
     if ean_test[..test_length].chars().last().unwrap().to_digit(10).unwrap() != digit {
