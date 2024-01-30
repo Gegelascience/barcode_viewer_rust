@@ -1,7 +1,7 @@
 
 mod ean_checker;
 
-use std::{char, fs};
+use std::{char, fs,io};
 
 fn calculate_barcode_ean13(ean:&str) -> String {
     let mut barcode = "101".to_string();
@@ -192,9 +192,24 @@ fn find_set_by_prefix(prefix:char, index:i32) -> char {
 }
 
 fn main() -> std::io::Result<()> {
-    println!("Hello, world!");
-    let ean_test = "3666154117284";
-    let result = ean_checker::is_correct_ean(ean_test);
+    println!("Enter an ean:");
+
+    //let ean_test = "3666154117284";
+
+    let mut ean_test =  String::new();
+    
+    io::stdin().read_line(&mut ean_test).expect("no ean given");
+
+    if let Some('\n')=ean_test.chars().next_back() {
+        ean_test.pop();
+    }
+    if let Some('\r')=ean_test.chars().next_back() {
+        ean_test.pop();
+    }
+
+    println!("test {}",ean_test);
+    
+    let result = ean_checker::is_correct_ean(ean_test.as_str());
     println!("{}",result);
 
     if result == true && ean_test.len() == 13 {
