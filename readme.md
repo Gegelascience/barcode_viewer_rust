@@ -9,3 +9,8 @@
 cargo build
 
 cargo run
+
+
+### Unit Test
+
+cargo test

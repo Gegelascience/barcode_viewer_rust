@@ -64,3 +64,22 @@ fn calculate_digit_check(ean_digit_check_less:&str) -> u32 {
 
     return digit_check;
 }
+
+
+#[cfg(test)]
+mod tests {
+    // Note this useful idiom: importing names from outer (for mod tests) scope.
+    use super::*;
+
+    #[test]
+    fn test_good_ean() {
+        assert_eq!(is_correct_ean("3666154117284"),true);
+    }
+
+    #[test]
+    fn test_bad_add() {
+        // This assert would fire and test will fail.
+        // Please note, that private functions can be tested too!
+        assert_eq!(is_correct_ean("366615411728"), false);
+    }
+}
