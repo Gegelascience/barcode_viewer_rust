@@ -1,7 +1,9 @@
 
 mod ean_checker;
+mod svg_parser;
 
 use std::{char, fs,io};
+
 
 fn calculate_barcode_ean13(ean:&str) -> String {
     let mut barcode = "101".to_string();
@@ -186,6 +188,7 @@ fn find_set_by_prefix(prefix:char, index:i32) -> char {
                 return 'B'
             }
         } else {
+            print!("error");
             return 'X'
         }
     }
@@ -213,10 +216,12 @@ fn main() -> std::io::Result<()> {
     println!("{}",result);
 
     if result == true && ean_test.len() == 13 {
-        let barcode_data = calculate_barcode_ean13("3666154117284");
+        let barcode_data = calculate_barcode_ean13(&ean_test);
         println!("{}",barcode_data);
+
+        let svg_content =  svg_parser::get_svg_string(barcode_data);
         
-        fs::write("foo.txt", b"Lorem ipsum")?;
+        fs::write("test.svg", svg_content.as_bytes())?;
     }
 
     Ok(())
