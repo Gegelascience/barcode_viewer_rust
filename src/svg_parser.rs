@@ -5,25 +5,25 @@ trait ToSvgString {
 }
 
 pub struct SvgTag {
-    pub(crate) child: GTag,
-    pub(crate) version:String,
-    pub(crate) base_profile:String,
-    pub(crate) width:i32,
-    pub(crate) height:i32,
-    pub(crate) xmlns:String
+    child: GTag,
+    version:String,
+    base_profile:String,
+    width:i32,
+    height:i32,
+    xmlns:String
 }
 
 pub struct GTag {
-    pub(crate) stoke:String,
-    pub(crate) children:Vec<LineTag>
+    stoke:String,
+    children:Vec<LineTag>
 }
 
 pub struct LineTag {
-    pub(crate) stroke_width:i32,
-    pub(crate) x1:i32,
-    pub(crate) y1:i32,
-    pub(crate) x2:i32,
-    pub(crate) y2:i32
+    stroke_width:i32,
+    x1:i32,
+    y1:i32,
+    x2:i32,
+    y2:i32
 }
 
 impl ToSvgString for LineTag {
