@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello-wasm example</title>
+  </head>
+  <body>
+    <script type="module">
+      import init, { check_ean, get_ean_13_barcode_data,draw_barcode } from "./pkg/barcode_viewer_rust.js";
+      init().then(() => {
+        //greet("WebAssembly");
+        document.getElementById("result1").innerText = check_ean("3666154117284")
+        document.getElementById("barcodeValue").innerText = get_ean_13_barcode_data("3666154117284")
+        document.getElementById("result2").innerText = check_ean("3666154117283")
+        const color = [1.0, 0.0, 0.0, 1.0];
+        //draw_triangle("barcodeCanvas", color);
+        draw_barcode(get_ean_13_barcode_data("3666154117284"));
+      });
+    </script>
+    <p>Test pour 3666154117284</p>
+    <p id="result1"></p>
+    <p id="barcodeValue"></p>
+    <canvas id="barcodeCanvas" height="400" width="525"></canvas>
+    <p>Test pour 3666154117283</p>
+    <p id="result2"></p>
+  </body>
+</html>
