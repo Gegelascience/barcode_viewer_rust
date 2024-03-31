@@ -7,7 +7,7 @@
 3666154117284
 
 
-### Run
+### Run script mode
 
 cargo build
 

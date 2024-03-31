@@ -48,34 +48,22 @@ fn main() -> std::io::Result<()> {
             for char in barcode_data.chars() {
                 if char == '1' {
                     for _n in 0..10 {
-                        img_data.push(
-                            0x00
-                        );
-                        img_data.push(
-                            0x00
-                        );
-                        img_data.push(
-                            0x00
-                        );
-                        img_data.push(
-                            0xff
-                        )
+                        for _i in 0..4 {
+                            img_data.push(
+                                0x00
+                            );
+                        }
+                        
                     }
                 
                 } else {
                     for _n in 0..10 {
-                        img_data.push(
-                            0xff
-                        );
-                        img_data.push(
-                            0xff
-                        );
-                        img_data.push(
-                            0xff
-                        );
-                        img_data.push(
-                            0xff
-                        )
+                        for _i in 0..4 {
+                            img_data.push(
+                                0xff
+                            );
+                        }
+                        
                     }
                 
                 }
