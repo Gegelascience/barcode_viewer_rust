@@ -6,7 +6,7 @@
   </head>
   <body>
     <script type="module">
-      import init, { check_ean, get_ean_13_barcode_data,draw_barcode } from "./pkg/barcode_viewer_rust.js";
+      import init, { check_ean, get_ean_13_barcode_data,draw_barcode } from "./pkg/barcode_viewer_rust_wasm.js";
       init().then(() => {
         //greet("WebAssembly");
         document.getElementById("result1").innerText = check_ean("3666154117284")
