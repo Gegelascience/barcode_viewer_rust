@@ -17,12 +17,3 @@ cargo run
 ### Unit Test
 
 cargo test
-
-## wasm version
-
-### Dependencies
-cargo install wasm-pack
-
-### Compile rust in web assembly
-
-wasm-pack build --target web
