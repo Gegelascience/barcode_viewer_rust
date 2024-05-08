@@ -5,9 +5,6 @@ pub fn calculate_barcode_ean13(ean:&str) -> String {
     let first_part = &ean[1..7];
     let second_part = &ean[7..13];
 
-    println!("{}",first_part);
-
-    println!("{}",second_part);
 
     let prefix = ean.chars().nth(0).unwrap();
 

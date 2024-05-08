@@ -32,7 +32,7 @@ fn main() -> std::io::Result<()> {
 
     if result == true && ean_test.len() == 13 {
         let barcode_data = barcode_data::calculate_barcode_ean13(&ean_test);
-        println!("{}",barcode_data);
+        println!("barcode value {}",barcode_data);
 
         let _ = barcode_renderer::save_barcode_as_svg(barcode_data.clone());
 

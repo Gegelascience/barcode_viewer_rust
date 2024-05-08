@@ -14,26 +14,24 @@ pub fn save_barcode_as_png(barcode_data: String) {
     let mut f = std::fs::File::create("test.png").unwrap();
 
         let image_width = 95 *10;
-        let image_height = 50;
+        let size_header = 10;
+        let image_height = 50 ;
         let mut img_data: Vec<u8> = Vec::new();
         let mut line_index = 0;
 
-        while line_index < image_height {
-            
-            // entête ligne blanche
-            if line_index == 0 {
-                for _ in 0..10 {
-                    for _ in barcode_data.chars() {
-                        for _ in 0..40 {
-                            img_data.push(
-                                0xff
-                            );
-                        }
-                        
-                    }
+        for _ in 0..size_header {
+            for _ in barcode_data.chars() {
+                for _ in 0..40 {
+                    img_data.push(
+                        0xff
+                    );
                 }
                 
             }
+        }
+
+        while line_index < image_height {
+
 
             // ecriture d une ligne
             for char in barcode_data.chars() {
@@ -63,9 +61,19 @@ pub fn save_barcode_as_png(barcode_data: String) {
 
             line_index +=1
         }
-        
 
-        match png_writer::write(&mut f, &img_data, image_width, image_height+10) {
+        for _ in 0..size_header {
+            for _ in barcode_data.chars() {
+                for _ in 0..40 {
+                    img_data.push(
+                        0xff
+                    );
+                }
+                
+            }
+        }
+        
+        match png_writer::write(&mut f, &img_data, image_width, image_height + 2*size_header) {
             Ok(_) => {
                 println!("Written image!");
             },
