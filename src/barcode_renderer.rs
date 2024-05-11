@@ -2,6 +2,20 @@ use crate::svg_parser;
 use crate::png_writer;
 use std::fs;
 
+pub fn show_on_terminal(barcode_data: String) {
+    for _ in 0..5 {
+        let mut line: String = Default::default();
+        for char in barcode_data.chars() {
+            if char == '1' {
+                line.push('#');
+            } else {
+                line.push(' ');
+            }
+        }
+        println!("{}",line);
+    }
+}
+
 pub fn save_barcode_as_svg(barcode_data: String)-> std::io::Result<()> {
     let svg_content =  svg_parser::get_svg_string(barcode_data);
         

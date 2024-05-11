@@ -37,6 +37,8 @@ fn main() -> std::io::Result<()> {
         let _ = barcode_renderer::save_barcode_as_svg(barcode_data.clone());
 
         let _ = barcode_renderer::save_barcode_as_png(barcode_data.clone());
+
+        barcode_renderer::show_on_terminal(barcode_data);
     }
 
     Ok(())
